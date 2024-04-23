@@ -1,0 +1,27 @@
+import java.util.ArrayList;
+import java.util.List;
+
+public class PhoneBook {
+    private List<Contact> contacts = new ArrayList<>();
+
+    public void addContact(Contact contact) {
+        contacts.add(contact);
+    }
+
+    public void removeContact(String name) {
+        contacts.removeIf(contact -> contact.getName().equalsIgnoreCase(name));
+    }
+
+    public Contact getContact(String name) {
+        for (Contact contact : contacts) {
+            if (contact.getName().equalsIgnoreCase(name)) {
+                return contact;
+            }
+        }
+        return null;
+    }
+
+    public List<Contact> getAllContacts() {
+        return new ArrayList<>(contacts);
+    }
+}
